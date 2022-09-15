@@ -11,7 +11,8 @@ public class NumberGuessGame {
         int randomNumber = rand.nextInt(100) + 1;
        // System.out.println("Random number is " + randomNumber);
         int tryCount = 0;
-        while (true) {
+        final int maxTryCount = 5;
+        while (tryCount < maxTryCount) {
             System.out.println("Enter your guess ( 1 - 100 ):");
 
             int playerGuess = scanner.nextInt();
@@ -24,6 +25,9 @@ public class NumberGuessGame {
                 System.out.println("Nope! the number is higher. Guess again.");
             } else {
                 System.out.println("Nope! the number is lower. Guess again.");
+            }
+            if(tryCount == maxTryCount) {
+                System.out.println("You lost! The number was: " + randomNumber);
             }
         }
     }
